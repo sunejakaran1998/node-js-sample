@@ -18,8 +18,9 @@ jobs:
     - name: Get current date and time
       run: echo "CURRENT_DATE_TIME=$(date +'%d-%m-%Y_%H-%M-%S')" >> $GITHUB_ENV
     
-    - name: Print repository name
-      run: echo "Repository name:${{ github.repository }}"
+    - name: Print repository name only
+      run: echo "Repository name:$(echo "${{ github.repository }}" | awk -F'/' '{print $2}')"
+
   
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
