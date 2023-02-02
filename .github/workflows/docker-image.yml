@@ -17,6 +17,9 @@ jobs:
       uses: actions/checkout@v2
     - name: Get current date and time
       run: echo "CURRENT_DATE_TIME=$(date +'%d-%m-%Y_%H-%M-%S')" >> $GITHUB_ENV
+    
+    - name: Print repository name
+      run: echo "Repository name:${{ github.repository }}"
   
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
